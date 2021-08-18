@@ -39,7 +39,9 @@ if res.status_code:
     print(f'Downloading {len(images)} images.')
     
     # Images storage path
-    BASE_IMAGE_PATH = '/Users/rehmat/sites/scraping-lectures/day2/images'
+    # BASE_IMAGE_PATH = '/Users/rehmat/sites/scraping-lectures/day2/images'
+    # Use current directory to store images in
+    BASE_IMAGE_PATH = os.path.join(os.getcwd(), 'images')
     
     # Check if directory exists, if not, create it
     if not os.path.exists(BASE_IMAGE_PATH):
