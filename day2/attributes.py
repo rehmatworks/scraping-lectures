@@ -47,18 +47,23 @@ if res.status_code:
     if not os.path.exists(BASE_IMAGE_PATH):
         os.makedirs(BASE_IMAGE_PATH)
     
-    for img in images:
-        image_name = os.path.basename(img)
+    for img_link in images:
+        image_name = os.path.basename(img_link)
         image_path = os.path.join(BASE_IMAGE_PATH, image_name)
         
         if os.path.exists(image_path):
             print(f'Image {image_name} already downloaded.')
         else:
             # Get the image
-            res = requests.get(img)
+            res = requests.get(img_link)
+            
             
             if res.status_code == 200:
                 with open(image_path, 'wb') as f:
                     f.write(res.content)
             else:
                 print(f'Can\'t download image from {img}')
+                
+    
+    for img in images:
+        if len(images)
