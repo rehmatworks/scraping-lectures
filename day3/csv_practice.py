@@ -19,6 +19,7 @@ resp = requests.get(BASE_URL, headers=HEADERS)
 if resp.status_code == 200:
     soup = BeautifulSoup(resp.text, 'html.parser')
     products = []
+    
     # Target by class name: grid-item
     product_elements = soup.find_all('div', {'class': 'grid-item'})
     for prod in product_elements:
